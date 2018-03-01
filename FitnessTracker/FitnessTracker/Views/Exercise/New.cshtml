@@ -1,0 +1,30 @@
+﻿@model  FitnessTracker.Models.WorkoutViewModel
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Workout</h2>
+
+@using (Html.BeginForm("Save", "Exercise"))
+{
+    @Html.ValidationSummary(true, "Please fix the following errors.")
+    <div class="form-group">
+        @Html.LabelFor(m => m.Workout.ExerciseName)
+        @Html.TextBoxFor(m => m.Workout.ExerciseName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Workout.ExerciseName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Workout.Weight)
+        @Html.TextBoxFor(m => m.Workout.Weight, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Workout.Weight)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Workout.Reps)
+        @Html.TextBoxFor(m => m.Workout.Reps, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Workout.Reps)
+    </div>
+    @Html.HiddenFor(m => m.Workout.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}

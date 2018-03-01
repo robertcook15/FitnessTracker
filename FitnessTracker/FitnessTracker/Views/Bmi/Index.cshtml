@@ -1,0 +1,31 @@
+﻿@model IEnumerable<FitnessTracker.Models.BmiModel>
+@{
+    ViewBag.Title = "BMI";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Calculate BMI</h2>
+<p>
+    @Html.ActionLink("Calculate BMI", "CalculateBmi", "BMI", null, new { @class = "btn btn-primary" })
+</p>
+<table id="workout" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Weight</th>
+            <th>Height</th>
+            <th>BMI</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var mesurement in Model)
+        {
+            <tr>
+                <td>@mesurement.Weight</td>
+                <td>@mesurement.Height</td>
+                <td>@mesurement.BmiResult%</td>                
+            </tr>
+        }
+
+    </tbody>
+</table>
+

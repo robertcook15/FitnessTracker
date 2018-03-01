@@ -1,0 +1,25 @@
+﻿@model FitnessTracker.Models.BmiViewModel
+@{
+    ViewBag.Title = "CalculateBmi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Calculate BMI</h2>
+@using (Html.BeginForm("Save", "BMI"))
+{
+    @Html.ValidationSummary(true, "Please fix the following errors.")
+    <div class="form-group">
+        @Html.LabelFor(m => m.BmiModel.Weight)
+        @Html.TextBoxFor(m => m.BmiModel.Weight, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.BmiModel.Weight)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.BmiModel.Height)
+        @Html.TextBoxFor(m => m.BmiModel.Height, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.BmiModel.Height)
+    </div>    
+    @Html.HiddenFor(m => m.BmiModel.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
