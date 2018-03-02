@@ -60,8 +60,8 @@ namespace FitnessTracker
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "732443596638-atcgc14q6ofu2icpuhulpbrg782amll3.apps.googleusercontent.com",
-                ClientSecret = "Qjsd9X1Z-AGDixjCC_XDiiOA"
+                ClientId = "stuff",
+                ClientSecret = "stuff"
             });
         }
     }
